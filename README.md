@@ -1,8 +1,8 @@
-# 🛡️ PhishShield AI
+# 🛡️ PhishShield AI Live
 
 > AI-Powered Phishing Detection & Threat Analysis Platform
 
-PhishShield AI is an intelligent cybersecurity platform that analyzes suspicious emails, SMS messages, and text-based communications to identify potential phishing attacks. The system leverages Large Language Models (LLMs) through the Groq API to perform threat analysis, calculate risk scores, classify threat levels, and generate detailed security reports.
+PhishShield AI Live is a lightweight, deployment-ready cybersecurity application that analyzes suspicious emails, SMS messages, and text-based communications to identify potential phishing attacks. The platform leverages Large Language Models (LLMs) through the Groq API to perform intelligent threat analysis, calculate risk scores, classify threat levels, and generate downloadable security reports.
 
 ---
 
@@ -23,31 +23,24 @@ PhishShield AI is an intelligent cybersecurity platform that analyzes suspicious
   * MEDIUM
   * HIGH
   * CRITICAL
-* Explain detected risks in a human-readable format
+* Provide detailed explanations for detected threats
 
 ### 📄 PDF Report Generation
 
-* Generate downloadable PDF analysis reports
-* Include:
+Generate downloadable PDF reports containing:
 
-  * Analysis ID
-  * Risk Score
-  * Threat Level
-  * Explanation
-  * Recommendations
+* Analysis ID
+* Risk Score
+* Threat Level
+* Security Explanation
+* Recommended Actions
 
-### 🗄️ Analysis History
+### 🌐 Deployment Ready
 
-* Store all analyses in MySQL
-* Maintain historical records
-* Track previously analyzed messages
-
-### 📈 Security Dashboard
-
-* Total analyses performed
-* Average risk score
-* Threat distribution metrics
-* Security monitoring overview
+* Lightweight architecture
+* No database dependency
+* Optimized for cloud deployment
+* Compatible with Hugging Face Spaces
 
 ---
 
@@ -68,14 +61,14 @@ Threat Analysis
     ├── Risk Score
     ├── Threat Level
     ├── Indicators
+    ├── Explanation
     └── Recommendations
     │
     ▼
-MySQL Database
+PDF Report Generation
     │
-    ├── History Page
-    ├── Dashboard
-    └── PDF Reports
+    ▼
+Download Report
 ```
 
 ---
@@ -87,7 +80,6 @@ MySQL Database
 | Frontend        | Streamlit           |
 | AI Engine       | Groq API            |
 | Backend Logic   | Python              |
-| Database        | MySQL               |
 | PDF Reports     | ReportLab           |
 | Deployment      | Hugging Face Spaces |
 | Version Control | Git & GitHub        |
@@ -97,26 +89,13 @@ MySQL Database
 ## 📂 Project Structure
 
 ```text
-PhishShield-AI/
+PhishShield-AI-Live/
 │
 ├── ai/
 │   └── groq_engine.py
 │
-├── database/
-│   └── db.py
-│
-├── exports/
-│   └── pdfs/
-│
-├── pages/
-│   ├── 1_Analyze.py
-│   ├── 2_Dashboard.py
-│   └── 3_History.py
-│
 ├── reports/
 │   └── pdf_generator.py
-│
-├── utils/
 │
 ├── app.py
 ├── requirements.txt
@@ -131,8 +110,8 @@ PhishShield-AI/
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/ranejai954/phishshield-ai.git
-cd phishshield-ai
+git clone https://github.com/ranejai954/phishshield-ai-live.git
+cd phishshield-ai-live
 ```
 
 ### 2. Create Virtual Environment
@@ -161,42 +140,11 @@ Create a `.env` file:
 
 ```env
 GROQ_API_KEY=your_groq_api_key
-
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_password
-DB_NAME=phishshield
 ```
 
 ---
 
-## 🗄️ Database Setup
-
-Create database:
-
-```sql
-CREATE DATABASE phishshield;
-```
-
-Create table:
-
-```sql
-CREATE TABLE analyses (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    analysis_id VARCHAR(20),
-    input_type VARCHAR(50),
-    input_text TEXT,
-    risk_score INT,
-    threat_level VARCHAR(20),
-    explanation TEXT,
-    recommendations TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
-
----
-
-## ▶️ Running The Project
+## ▶️ Running The Application
 
 Start Streamlit:
 
@@ -224,11 +172,10 @@ AI Analysis
 Risk Assessment
         │
         ▼
-Store in MySQL
+Generate PDF Report
         │
-        ├── Dashboard Analytics
-        ├── History Records
-        └── PDF Report Generation
+        ▼
+Download Results
 ```
 
 ---
@@ -240,20 +187,21 @@ Store in MySQL
 * SMS Scam Detection
 * Security Education
 * Threat Intelligence Demonstrations
+* AI Security Research
 * Student Cybersecurity Projects
 
 ---
 
 ## 🔮 Future Enhancements
 
-* URL Reputation Checking
-* Email Header Analysis
+* URL Reputation Analysis
+* Email Header Inspection
 * File Attachment Scanning
 * Threat Intelligence Integration
-* User Authentication
-* SOC Dashboard Enhancements
+* Browser Extension Support
+* Multi-Language Phishing Detection
 * Real-Time Threat Monitoring
-* API Integration Support
+* API-Based Analysis Service
 
 ---
 
@@ -270,3 +218,37 @@ GitHub: https://github.com/ranejai954
 ## 📜 License
 
 This project is developed for educational and research purposes as part of the IBM SkillsBuild AI Internship Program.
+
+
+## 🔗 Related Repository
+
+This repository contains the lightweight deployment-ready version of PhishShield AI designed for cloud hosting and public demonstrations.
+
+For the complete version featuring:
+
+* MySQL Database Integration
+* Analysis History Tracking
+* Security Analytics Dashboard
+* Persistent Storage
+* Advanced Project Architecture
+
+visit the full project repository:
+
+**PhishShield AI (Full Version)**
+
+https://github.com/ranejai954/phishshield-ai
+
+### Version Comparison
+
+| Feature               | PhishShield AI Live | PhishShield AI (Full Version) |
+| --------------------- | ------------------- | ----------------------------- |
+| AI Phishing Detection | ✅                   | ✅                             |
+| Risk Assessment       | ✅                   | ✅                             |
+| PDF Report Generation | ✅                   | ✅                             |
+| Deployment Ready      | ✅                   | ⚠️ Local Setup Required       |
+| MySQL Database        | ❌                   | ✅                             |
+| Analysis History      | ❌                   | ✅                             |
+| Analytics Dashboard   | ❌                   | ✅                             |
+| Persistent Storage    | ❌                   | ✅                             |
+
+The full version is recommended for users who want to explore the complete architecture, database integration, analytics capabilities, and local deployment workflow.
